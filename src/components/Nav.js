@@ -14,9 +14,6 @@ const Nav = () => {
           <a href="/">About me</a>
         </li>
         <li>
-          <a href="/">Contact me</a>
-        </li>
-        <li>
           <a href="/">Pexels</a>
         </li>
       </ul>
@@ -34,6 +31,7 @@ const StyledNav = styled.nav`
   align-items: center;
   padding: 0rem 20rem;
   background: #282828;
+  z-index: 5;
   a {
     color: white;
     text-decoration: none;
@@ -49,7 +47,7 @@ const StyledNav = styled.nav`
     display: flex;
     list-style: none;
     align-items: center;
-    width: 500px;
+    width: 300px;
     display: flex;
     justify-content: space-between;
     height: 100%;

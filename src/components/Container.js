@@ -5,6 +5,11 @@ import styled from "styled-components";
 import Photos from "./Photos";
 
 const Container = (props) => {
+  const loadMoreHandler = () => {
+    props.fetchHandler(props.page);
+    const pagePlus = props.page + 1;
+    props.setPage(pagePlus);
+  };
   let string = (
     <StyledContainer>
       <h3>No images</h3>
@@ -20,7 +25,11 @@ const Container = (props) => {
           isLoading={props.isLoading}
           pattern={props.pattern}
           setIsLoading={props.setIsLoading}
+          fetchHandler={props.fetchHandler}
         ></Photos>
+        {props.photos.length > 0 ? (
+          <button onClick={loadMoreHandler}>Load More...</button>
+        ) : null}
       </StyledContainer>
     );
   }
@@ -29,7 +38,7 @@ const Container = (props) => {
 };
 
 const StyledContainer = styled.div`
-  margin-top: 4rem;
+  margin: 5rem 0rem;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -37,6 +46,16 @@ const StyledContainer = styled.div`
   h3 {
     text-transform: capitalize;
     font-size: 2.5rem;
+  }
+  button {
+    padding: 18px 36px;
+    background: #282828;
+    font-size: 1.25rem;
+    font-family: "Montserrat", sans-serif;
+    border: none;
+    margin-top: 2em;
+    color: white;
+    cursor: pointer;
   }
 `;
 

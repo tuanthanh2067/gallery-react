@@ -5,23 +5,10 @@ import Photo from "./Photo";
 import Loader from "./Loader";
 import NoFound from "./NoFound";
 
-// pexels
-import { createClient } from "pexels";
-const client = createClient(process.env.REACT_APP_API_KEY);
-
 const Photos = (props) => {
   useEffect(() => {
-    props.setIsLoading(true);
-    const query = props.pattern;
-    client.photos
-      .search({ query, per_page: 20 })
-      .then((photos) => {
-        props.setPhotos(photos.photos);
-        props.setIsLoading(false);
-      })
-      .catch((error) => {
-        console.log("error from fetching");
-      });
+    props.fetchHandler(1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.pattern]);
 
   let scripts = null;

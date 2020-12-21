@@ -2,10 +2,18 @@ import React from "react";
 import styled from "styled-components";
 
 const Photo = ({ info }) => {
+  const clickedHandler = () => {
+    window.location.href = info.url;
+  };
+
   return (
     <StyledPhoto>
       <div>
-        <img src={info.src.medium} alt={info.url}></img>
+        <img
+          src={info.src.medium}
+          alt={info.url}
+          onClick={clickedHandler}
+        ></img>
       </div>
       <h4>{info.photographer}</h4>
     </StyledPhoto>
@@ -30,6 +38,7 @@ const StyledPhoto = styled.div`
     height: 100%;
     object-fit: cover;
     transition: all 0.5s ease;
+    cursor: pointer;
   }
   h4 {
     height: 15%;

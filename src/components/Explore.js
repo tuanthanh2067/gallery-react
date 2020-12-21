@@ -13,6 +13,9 @@ const Explore = ({
   setPattern,
   isLoading,
   setIsLoading,
+  fetchHandler,
+  page,
+  setPage,
 }) => {
   return (
     <StyledExplore>
@@ -24,6 +27,9 @@ const Explore = ({
         isLoading={isLoading}
         pattern={pattern}
         setIsLoading={setIsLoading}
+        fetchHandler={fetchHandler}
+        page={page}
+        setPage={setPage}
       ></Container>
     </StyledExplore>
   );
