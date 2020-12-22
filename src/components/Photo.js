@@ -50,6 +50,10 @@ const StyledPhoto = styled.div`
   img:hover {
     transform: scale(1.25);
   }
+  @media (max-width: 700px) {
+    width: 240px;
+    height: 290px;
+  }
 `;
 
 export default Photo;

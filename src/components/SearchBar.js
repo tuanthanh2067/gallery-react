@@ -51,6 +51,9 @@ const StyledForm = styled.form`
     border: none;
     cursor: pointer;
   }
+  @media (max-width: 900px) {
+    width: 80%;
+  }
 `;
 
 const StyledExample = styled.h5`
@@ -58,6 +61,9 @@ const StyledExample = styled.h5`
   font-weight: normal;
   font-style: italic;
   padding-left: 0.25rem;
+  @media (max-width: 900px) {
+    width: 80%;
+  }
 `;
 
 export default SearchBar;

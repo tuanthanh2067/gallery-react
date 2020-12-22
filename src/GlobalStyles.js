@@ -8,7 +8,14 @@ const GlobalStyle = createGlobalStyle`
     }
     body {
         font-family: 'Montserrat', sans-serif;
-        
+        height: 100vh;
+    }
+    #root {
+        height: 100vh;
+
+    }
+    .App {
+        height: 100vh;
     }
     
 `;

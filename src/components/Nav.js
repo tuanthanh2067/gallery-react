@@ -1,20 +1,21 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   return (
     <StyledNav>
       <h1>
-        <a href="/" className="logo">
+        <Link to="/" className="logo">
           Your Gallery
-        </a>
+        </Link>
       </h1>
       <ul>
         <li>
-          <a href="/">About me</a>
+          <Link to="/aboutme">About me</Link>
         </li>
         <li>
-          <a href="/">Pexels</a>
+          <Link to="/">Pexels</Link>
         </li>
       </ul>
     </StyledNav>
@@ -61,6 +62,24 @@ const StyledNav = styled.nav`
   .logo {
     font-size: 1.75rem;
     font-family: "Lobster", sans-serif;
+  }
+  @media (max-width: 1300px) {
+    padding: 0 10rem;
+  }
+  @media (max-width: 900px) {
+    padding: 0 3rem;
+  }
+  @media (max-width: 700px) {
+    padding: 0 2rem;
+    ul {
+      width: 200px;
+    }
+  }
+  @media (max-width: 430px) {
+    padding: 0 2rem;
+    ul {
+      width: 150px;
+    }
   }
 `;
 

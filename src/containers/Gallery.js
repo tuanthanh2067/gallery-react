@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 // components, containers
-import Nav from "../components/Nav";
 import Explore from "../components/Explore";
 
 // pexels
@@ -33,7 +32,6 @@ const Gallery = () => {
 
   return (
     <>
-      <Nav></Nav>
       <Explore
         photos={photos}
         setPhotos={setPhotos}
