@@ -1,13 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 
-const SearchBar = ({ pattern, setPattern }) => {
-  let string = "";
+import { useHistory } from "react-router-dom";
 
+const SearchBar = () => {
+  let string = "";
+  const history = useHistory();
   const clickedHandler = (e) => {
-    setPattern(string);
     e.preventDefault();
     e.currentTarget.reset();
+    history.push(`/photos/${string}/1`);
   };
 
   return (

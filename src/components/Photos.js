@@ -5,11 +5,18 @@ import Photo from "./Photo";
 import Loader from "./Loader";
 import NoFound from "./NoFound";
 
+// route
+import { useLocation } from "react-router-dom";
+
 const Photos = (props) => {
+  const location = useLocation();
+  const pattern = location.pathname.split("/")[2];
+  const page = location.pathname.split("/")[3];
+
   useEffect(() => {
-    props.fetchHandler(1);
+    props.fetchHandler(page, pattern);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.pattern]);
+  }, [pattern, page]);
 
   let scripts = null;
   if (props.photos.length > 0) {

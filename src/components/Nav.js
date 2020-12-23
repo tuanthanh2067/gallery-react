@@ -15,7 +15,7 @@ const Nav = () => {
           <Link to="/aboutme">About me</Link>
         </li>
         <li>
-          <Link to="/">Pexels</Link>
+          <Link to="/oops">Oops</Link>
         </li>
       </ul>
     </StyledNav>

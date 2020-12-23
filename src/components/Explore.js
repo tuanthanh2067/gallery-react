@@ -3,34 +3,34 @@ import React from "react";
 // components, containers
 import SearchBar from "./SearchBar";
 import Container from "./Container";
+// route
+import { useLocation } from "react-router-dom";
 
 import styled from "styled-components";
 
 const Explore = ({
   photos,
   setPhotos,
-  pattern,
-  setPattern,
   isLoading,
   setIsLoading,
   fetchHandler,
-  page,
-  setPage,
 }) => {
+  const location = useLocation();
+  const pattern = location.pathname.split("/")[2];
+
   return (
     <StyledExplore>
       <h2>Explore billions of photos</h2>
-      <SearchBar pattern={pattern} setPattern={setPattern}></SearchBar>
-      <Container
-        photos={photos}
-        setPhotos={setPhotos}
-        isLoading={isLoading}
-        pattern={pattern}
-        setIsLoading={setIsLoading}
-        fetchHandler={fetchHandler}
-        page={page}
-        setPage={setPage}
-      ></Container>
+      <SearchBar></SearchBar>
+      {pattern && (
+        <Container
+          photos={photos}
+          setPhotos={setPhotos}
+          isLoading={isLoading}
+          setIsLoading={setIsLoading}
+          fetchHandler={fetchHandler}
+        ></Container>
+      )}
     </StyledExplore>
   );
 };

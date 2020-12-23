@@ -9,18 +9,14 @@ const client = createClient(process.env.REACT_APP_API_KEY);
 
 const Gallery = () => {
   const [photos, setPhotos] = useState([]);
-  const [pattern, setPattern] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [page, setPage] = useState(2);
 
-  const fetchHandler = (pageNo) => {
+  const fetchHandler = (pageNo, query) => {
     setIsLoading(true);
-    const query = pattern;
     client.photos
-      .search({ query, per_page: 60, page: pageNo })
+      .search({ query, per_page: 40, page: pageNo })
       .then((response) => {
         let returnedPhotos = response.photos;
-        console.log(returnedPhotos);
         setPhotos(returnedPhotos);
         setIsLoading(false);
       })
@@ -35,13 +31,9 @@ const Gallery = () => {
       <Explore
         photos={photos}
         setPhotos={setPhotos}
-        pattern={pattern}
-        setPattern={setPattern}
         isLoading={isLoading}
         setIsLoading={setIsLoading}
         fetchHandler={fetchHandler}
-        page={page}
-        setPage={setPage}
       ></Explore>
     </>
   );

@@ -1,40 +1,36 @@
 import React from "react";
 import styled from "styled-components";
 
+// route
+import { useHistory } from "react-router-dom";
+
 // components, containers
 import Photos from "./Photos";
 
 const Container = (props) => {
+  const history = useHistory();
+  const location = history.location;
+  const pattern = location.pathname.split("/")[2];
+  let page = location.pathname.split("/")[3];
   const loadMoreHandler = () => {
-    props.fetchHandler(props.page);
-    const pagePlus = props.page + 1;
-    props.setPage(pagePlus);
+    page = parseInt(page) + 1;
+    history.push(`/photos/${pattern}/${page}`);
   };
-  let string = (
+  return (
     <StyledContainer>
-      <h3>No images</h3>
+      <h3>{pattern} photos</h3>
+      <Photos
+        photos={props.photos}
+        setPhotos={props.setPhotos}
+        isLoading={props.isLoading}
+        setIsLoading={props.setIsLoading}
+        fetchHandler={props.fetchHandler}
+      ></Photos>
+      {props.photos.length > 0 ? (
+        <button onClick={loadMoreHandler}>Load More...</button>
+      ) : null}
     </StyledContainer>
   );
-  if (props.pattern !== "") {
-    string = (
-      <StyledContainer>
-        <h3>{props.pattern} photos</h3>
-        <Photos
-          photos={props.photos}
-          setPhotos={props.setPhotos}
-          isLoading={props.isLoading}
-          pattern={props.pattern}
-          setIsLoading={props.setIsLoading}
-          fetchHandler={props.fetchHandler}
-        ></Photos>
-        {props.photos.length > 0 ? (
-          <button onClick={loadMoreHandler}>Load More...</button>
-        ) : null}
-      </StyledContainer>
-    );
-  }
-
-  return string;
 };
 
 const StyledContainer = styled.div`
