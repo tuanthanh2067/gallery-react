@@ -1,21 +1,21 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Nav = () => {
   return (
     <StyledNav>
       <h1>
-        <Link to="/" className="logo">
+        <NavLink to="/" className="logo">
           Your Gallery
-        </Link>
+        </NavLink>
       </h1>
       <ul>
         <li>
-          <Link to="/aboutme">About me</Link>
+          <NavLink to="/aboutme">About me</NavLink>
         </li>
         <li>
-          <Link to="/oops">Oops</Link>
+          <NavLink to="/oops">Oops</NavLink>
         </li>
       </ul>
     </StyledNav>
@@ -33,6 +33,7 @@ const StyledNav = styled.nav`
   padding: 0rem 20rem;
   background: #282828;
   z-index: 5;
+
   a {
     color: white;
     text-decoration: none;
@@ -40,10 +41,7 @@ const StyledNav = styled.nav`
     border-bottom: 4px solid transparent;
     padding: 36px 0px;
   }
-  a:hover,
-  a:active {
-    border-bottom: 4px solid white;
-  }
+
   ul {
     display: flex;
     list-style: none;
@@ -52,11 +50,17 @@ const StyledNav = styled.nav`
     display: flex;
     justify-content: space-between;
     height: 100%;
-  }
-  li {
-    display: flex;
-    height: 100%;
-    align-items: center;
+    li {
+      display: flex;
+      height: 100%;
+      align-items: center;
+    }
+
+    a:hover,
+    a:active,
+    a.active {
+      border-bottom: 4px solid white;
+    }
   }
 
   .logo {

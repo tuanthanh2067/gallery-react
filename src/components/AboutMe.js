@@ -34,6 +34,8 @@ const AboutMe = () => {
 };
 
 const StyledAboutMe = styled.div`
+  background: ${({ theme }) => theme.body};
+  color: ${({ theme }) => theme.text};
   width: 100%;
   height: 100%;
   display: flex;
@@ -43,8 +45,6 @@ const StyledAboutMe = styled.div`
   flex-direction: column;
   padding: 0rem 20rem;
   justify-content: center;
-  background: #242424;
-  color: #f0f0f0;
   @media (max-width: 1300px) {
     padding: 0 10rem;
   }

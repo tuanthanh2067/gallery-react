@@ -5,30 +5,38 @@ import Gallery from "./containers/Gallery";
 import Nav from "./components/Nav";
 import AboutMe from "./components/AboutMe";
 import PageNotFound from "./components/PageNotFound";
+import { useModes } from "./components/useModes";
+import { lightTheme, darkTheme } from "./components/Themes";
 
 // styles
 import GlobalStyle from "./GlobalStyles";
+import { ThemeProvider } from "styled-components";
 
 // Router
 import { Switch, Route } from "react-router-dom";
 
 function App() {
+  const [theme, themeToggler] = useModes();
+  const themeMode = theme === "light" ? lightTheme : darkTheme;
+
   return (
-    <div className="App">
-      <GlobalStyle></GlobalStyle>
-      <Nav></Nav>
-      <Switch>
-        <Route path={["/photos/:pattern/:page", "/"]} exact>
-          <Gallery></Gallery>
-        </Route>
-        <Route path="/aboutme">
-          <AboutMe></AboutMe>
-        </Route>
-        <Route>
-          <PageNotFound></PageNotFound>
-        </Route>
-      </Switch>
-    </div>
+    <ThemeProvider theme={themeMode}>
+      <div className="App">
+        <GlobalStyle></GlobalStyle>
+        <Nav></Nav>
+        <Switch>
+          <Route path={["/photos/:pattern/:page", "/"]} exact>
+            <Gallery themeToggler={themeToggler}></Gallery>
+          </Route>
+          <Route path="/aboutme">
+            <AboutMe></AboutMe>
+          </Route>
+          <Route>
+            <PageNotFound></PageNotFound>
+          </Route>
+        </Switch>
+      </div>
+    </ThemeProvider>
   );
 }
 

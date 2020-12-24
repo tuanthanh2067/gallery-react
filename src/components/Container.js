@@ -45,13 +45,13 @@ const StyledContainer = styled.div`
   }
   button {
     padding: 18px 36px;
-    background: #282828;
     font-size: 1.25rem;
     font-family: "Montserrat", sans-serif;
-    border: none;
     margin-top: 2em;
-    color: white;
     cursor: pointer;
+    background: ${({ theme }) => theme.body};
+    color: ${({ theme }) => theme.text};
+    border: ${({ theme }) => theme.buttonBorder};
   }
 `;
 

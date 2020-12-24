@@ -12,7 +12,10 @@ const PageNotFound = () => {
 export default PageNotFound;
 
 const StyledPageNotFound = styled.div`
+  background: ${({ theme }) => theme.body};
+  color: ${({ theme }) => theme.text};
   text-align: center;
-  margin: 10rem 0rem;
+  padding: 10rem 0rem 0rem 0rem;
   width: 100%;
+  height: 100%;
 `;

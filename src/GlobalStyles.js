@@ -17,6 +17,9 @@ const GlobalStyle = createGlobalStyle`
     .App {
         height: 100vh;
     }
+    button, input[type='submit'] {
+        transition: all 0.35s linear;
+    }
     
 `;
 

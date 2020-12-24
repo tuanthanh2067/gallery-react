@@ -46,11 +46,11 @@ const StyledForm = styled.form`
   .submit {
     width: 20%;
     height: 100%;
-    background: #282828;
-    color: white;
+    background: ${({ theme }) => theme.body};
+    color: ${({ theme }) => theme.text};
+    border: ${({ theme }) => theme.buttonBorder};
     font-family: "Montserrat", sans-serif;
     font-weight: bold;
-    border: none;
     cursor: pointer;
   }
   @media (max-width: 900px) {

@@ -3,6 +3,7 @@ import React from "react";
 // components, containers
 import SearchBar from "./SearchBar";
 import Container from "./Container";
+import Toggle from "./Toggle";
 // route
 import { useLocation } from "react-router-dom";
 
@@ -14,12 +15,14 @@ const Explore = ({
   isLoading,
   setIsLoading,
   fetchHandler,
+  themeToggler,
 }) => {
   const location = useLocation();
   const pattern = location.pathname.split("/")[2];
 
   return (
     <StyledExplore>
+      <Toggle themeToggler={themeToggler}></Toggle>
       <h2>Explore billions of photos</h2>
       <SearchBar></SearchBar>
       {pattern && (
@@ -36,13 +39,15 @@ const Explore = ({
 };
 
 const StyledExplore = styled.div`
+  background: ${({ theme }) => theme.body};
+  color: ${({ theme }) => theme.text};
   width: 100%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
-  margin-top: 10rem;
-  padding: 0 20rem;
+  padding: 10rem 20rem 0rem 20rem;
   align-items: center;
-  justify-content: center;
+  transition: all 0.35s linear;
   h2 {
     font-size: 2.25rem;
   }

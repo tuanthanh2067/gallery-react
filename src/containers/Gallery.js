@@ -7,7 +7,7 @@ import Explore from "../components/Explore";
 import { createClient } from "pexels";
 const client = createClient(process.env.REACT_APP_API_KEY);
 
-const Gallery = () => {
+const Gallery = ({ themeToggler }) => {
   const [photos, setPhotos] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -34,6 +34,7 @@ const Gallery = () => {
         isLoading={isLoading}
         setIsLoading={setIsLoading}
         fetchHandler={fetchHandler}
+        themeToggler={themeToggler}
       ></Explore>
     </>
   );
