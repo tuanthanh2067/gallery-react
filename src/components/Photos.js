@@ -35,7 +35,7 @@ const StyledDiv = styled.div`
   justify-content: space-between;
   min-height: 500px;
   flex-wrap: wrap;
-  @media (max-width: 430px) {
+  @media (max-width: 540px) {
     justify-content: center;
   }
 `;

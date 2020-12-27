@@ -85,6 +85,12 @@ const StyledNav = styled.nav`
       width: 150px;
     }
   }
+  @media (max-width: 360px) {
+    padding: 0 1rem;
+    .logo {
+      font-size: 1.5rem;
+    }
+  }
 `;
 
 export default Nav;

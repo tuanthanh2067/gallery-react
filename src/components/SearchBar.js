@@ -54,7 +54,10 @@ const StyledForm = styled.form`
     cursor: pointer;
   }
   @media (max-width: 900px) {
-    width: 80%;
+    width: 90%;
+  }
+  @media (max-width: 400px) {
+    width: 100%;
   }
 `;
 

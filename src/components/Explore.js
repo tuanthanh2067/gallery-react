@@ -53,13 +53,11 @@ const StyledExplore = styled.div`
   }
 
   @media (max-width: 1300px) {
-    padding: 0 10rem;
+    padding: 10rem 5rem;
   }
-  @media (max-width: 900px) {
-    padding: 0 3rem;
-  }
+
   @media (max-width: 700px) {
-    padding: 0 2rem;
+    padding: 10rem 2rem;
     h2 {
       font-size: 1.75rem;
     }
@@ -68,6 +66,9 @@ const StyledExplore = styled.div`
     h2 {
       font-size: 1.35rem;
     }
+  }
+  @media (max-width: 360px) {
+    padding: 10rem 1rem;
   }
 `;
 
