@@ -1,7 +1,7 @@
 import React from "react";
 
 // containers, components
-import Gallery from "./containers/Gallery";
+import Gallery from "./components/Gallery";
 import Nav from "./components/Nav";
 import AboutMe from "./components/AboutMe";
 import PageNotFound from "./components/PageNotFound";

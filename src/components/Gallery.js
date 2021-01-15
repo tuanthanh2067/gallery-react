@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // components, containers
-import Explore from "../components/Explore";
+import Explore from "./Explore";
 
 // pexels
 import { createClient } from "pexels";
